@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="E_mail.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:E_mail"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="Page_Loaded">
+
+    <Grid>
+        <!--<TextBlock Text="Привет)" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="50"/>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition Width="1"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <ListBox x:Name="Menu" SelectionChanged="Menu_SelectionChanged" Grid.Row="0"/>
+            <Button Name="WriteLatter" Content="Написать письмо" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="WriteLatter_Click"/>
+        </Grid>
+        <Grid Grid.Column="1">
+        </Grid>
+        <Grid Grid.Column="2">
+            <ListBox x:Name="view" SelectionChanged="latter_SelectionChanged"/>
+        </Grid>
+        
+        <Grid Grid.Column="3" Name="GridLatterView" Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Background="Red"/>
+            <TextBlock Name="latter" Grid.Column="1"/>
+        </Grid>
+        <Grid Grid.Column="3" Name="GridLatterWrite" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="1" PlaceholderText="Кому" Name="user"/>
+            <TextBox Grid.Row="3" PlaceholderText="Тема" Name ="teg"/>
+            <TextBox Grid.Row="5" PlaceholderText="Письмо" Name="LatterText" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Button Name="AddLatterToSend" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="7" Content="Отправить письмо" Click="AddLatterToSend_Click" />
+        </Grid>
+    </Grid>
+</Page>
